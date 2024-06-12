@@ -1,0 +1,30 @@
+diff --git a/node_modules/@cordialinc/react-native-sdk/js/cordial.js b/node_modules/@cordialinc/react-native-sdk/js/cordial.js
+index 894c846..0b83ab8 100644
+--- a/node_modules/@cordialinc/react-native-sdk/js/cordial.js
++++ b/node_modules/@cordialinc/react-native-sdk/js/cordial.js
+@@ -124,11 +124,7 @@ export class Cordial {
+     static upsertContactCart(cartItems) {
+         const preparedCartItems = Helper.prepareCartItems(cartItems);
+ 
+-        if (preparedCartItems.length !== 0) {
+-            this.bridge.upsertContactCart(preparedCartItems);
+-        } else {
+-            console.log('RTNCordialSDK: UpsertContactCart has been ignored, because the list of valid items is empty.');
+-        }
++        this.bridge.upsertContactCart(preparedCartItems);
+     }
+ 
+     static sendContactOrder(order) {
+diff --git a/node_modules/@cordialinc/react-native-sdk/js/helper.js b/node_modules/@cordialinc/react-native-sdk/js/helper.js
+index c14410b..57ea3ac 100644
+--- a/node_modules/@cordialinc/react-native-sdk/js/helper.js
++++ b/node_modules/@cordialinc/react-native-sdk/js/helper.js
+@@ -50,6 +50,8 @@ export default class Helper {
+                     case 'object':
+                         preparedProperties[key] = { type: 'object', value: this.prepareObjectProperties(value) };
+                         break
++                    case 'array':
++                        preparedProperties[key] = { type: 'array', value: this.prepareArrayProperties(value) };
+                     default:
+                         break
+                 }
