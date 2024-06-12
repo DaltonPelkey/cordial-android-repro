@@ -2,6 +2,7 @@ Cordial Android RECEIVER_EXPORTED Error
 ---
 - Copy example.app.config.ts to app.config.ts
 - Replace the init values for the expo-cordial plugin in app.config.ts
+- Use `npm i`
 - Use `npx expo run:android`
 - May need to follow directions [here](https://docs.expo.dev/get-started/set-up-your-environment/?platform=android&device=simulated&mode=development-build&buildEnv=local)
 
